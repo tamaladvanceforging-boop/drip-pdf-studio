@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Sun, Moon, Monitor } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function ThemeToggle() {
@@ -14,7 +14,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-9 h-9 rounded-xl bg-zinc-800/40 border border-white/5 animate-pulse" />
+      <div className="w-9 h-9 rounded-xl bg-slate-200 dark:bg-zinc-800/40 border border-slate-300 dark:border-white/5 animate-pulse" />
     );
   }
 
@@ -25,7 +25,7 @@ export function ThemeToggle() {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="p-2 rounded-xl bg-zinc-900/80 dark:bg-zinc-900/80 light:bg-zinc-100 border border-zinc-200 dark:border-white/10 hover:border-violet-500/50 text-zinc-700 dark:text-zinc-300 hover:text-violet-500 dark:hover:text-violet-400 transition-colors shadow-sm relative overflow-hidden"
+      className="p-2 rounded-xl bg-slate-100 dark:bg-zinc-900/80 border border-slate-300 dark:border-white/10 hover:border-violet-500 text-slate-700 dark:text-zinc-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors shadow-sm relative overflow-hidden flex items-center justify-center cursor-pointer"
       title={`Switch to ${isDark ? "Light" : "Dark"} Mode`}
       aria-label="Toggle Theme"
     >

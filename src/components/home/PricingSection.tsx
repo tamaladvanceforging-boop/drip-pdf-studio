@@ -39,7 +39,7 @@ export function PricingSection() {
         </h2>
 
         <p className="text-sm text-slate-600 dark:text-zinc-400 max-w-xl mx-auto leading-relaxed">
-          Because DripPDF Studio processes all files client-side in your browser memory, our server costs are $0. We pass those massive savings directly to you!
+          Experience lightning-fast document editing, e-signatures, AI OCR, and conversion processed privately in your browser memory with zero file limits.
         </p>
 
         {/* Currency Switcher Dropdown (Works on Web, Desktop & Mobile) */}
@@ -206,7 +206,7 @@ export function PricingSection() {
               </li>
               <li className="flex items-center space-x-2 font-medium">
                 <Check className="w-4 h-4 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />
-                <span>Better Auth & Postgres team sync</span>
+                <span>Cloud sync & document workspace</span>
               </li>
               <li className="flex items-center space-x-2 font-medium">
                 <Check className="w-4 h-4 text-cyan-600 dark:text-cyan-400 flex-shrink-0" />

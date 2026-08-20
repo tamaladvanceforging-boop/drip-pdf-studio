@@ -1,6 +1,6 @@
-@import "tailwindcss";
-
-@variant dark (&:where(.dark, .dark *));
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #f8fafc;
@@ -44,7 +44,7 @@ body {
   background: rgba(139, 92, 246, 0.7);
 }
 
-/* Glass header utility */
+/* Glass Header */
 .glass-header {
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
@@ -53,7 +53,7 @@ body {
 }
 
 .dark .glass-header {
-  background-color: rgba(9, 9, 11, 0.8);
+  background-color: rgba(9, 9, 11, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);

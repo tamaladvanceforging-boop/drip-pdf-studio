@@ -1,27 +1,65 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Check, Sparkles, Zap, Shield, Gift, ArrowRight } from "lucide-react";
+import { Check, Sparkles, Zap, Shield, Gift, ArrowRight, Globe } from "lucide-react";
 import { motion } from "framer-motion";
+import { CURRENCIES, CurrencyInfo, detectUserCurrency } from "@/lib/currency";
 
 export function PricingSection() {
+  const [selectedCurrencyCode, setSelectedCurrencyCode] = useState<string>("INR");
+
+  useEffect(() => {
+    const detected = detectUserCurrency();
+    setSelectedCurrencyCode(detected);
+  }, []);
+
+  const currency: CurrencyInfo = CURRENCIES[selectedCurrencyCode] || CURRENCIES.INR;
+
+  const handleCurrencyChange = (code: string) => {
+    setSelectedCurrencyCode(code);
+    try {
+      localStorage.setItem("drippdf_currency", code);
+    } catch (e) {}
+  };
+
   return (
     <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-zinc-200 dark:border-white/10">
       {/* Section Header */}
-      <div className="text-center space-y-3 mb-16">
+      <div className="text-center space-y-4 mb-16">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 text-emerald-600 dark:text-emerald-300 text-xs font-semibold">
           <Gift className="w-4 h-4 text-emerald-500" />
           <span>Limited Early Adopter Launch: 100% Free</span>
         </div>
+
         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
           Simple, Transparent &{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 via-violet-500 to-cyan-500">
             Currently 100% Free
           </span>
         </h2>
+
         <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto leading-relaxed">
-          Because DripPDF Studio processes everything client-side in your browser memory, our server costs are $0. We pass those massive savings directly to you!
+          Because DripPDF Studio processes all files client-side in your browser memory, our server costs are $0. We pass those massive savings directly to you!
         </p>
+
+        {/* Currency Switcher Dropdown (Works on Web, Desktop & Mobile) */}
+        <div className="pt-2 flex items-center justify-center">
+          <div className="inline-flex items-center space-x-2 bg-zinc-100 dark:bg-zinc-900/90 border border-zinc-300 dark:border-white/10 px-3 py-1.5 rounded-2xl shadow-sm">
+            <Globe className="w-4 h-4 text-violet-500" />
+            <span className="text-xs text-zinc-500 font-medium">Currency:</span>
+            <select
+              value={selectedCurrencyCode}
+              onChange={(e) => handleCurrencyChange(e.target.value)}
+              className="bg-transparent text-xs font-bold text-zinc-900 dark:text-zinc-100 focus:outline-none cursor-pointer"
+            >
+              {Object.values(CURRENCIES).map((c) => (
+                <option key={c.code} value={c.code} className="bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100">
+                  {c.flag} {c.code} ({c.symbol})
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
       </div>
 
       {/* Pricing Grid */}
@@ -37,7 +75,9 @@ export function PricingSection() {
               Essential PDF reading, annotations, and processing for students & casual users.
             </p>
             <div className="flex items-baseline space-x-1 pt-2">
-              <span className="text-4xl font-extrabold text-zinc-900 dark:text-white">$0</span>
+              <span className="text-4xl font-extrabold text-zinc-900 dark:text-white">
+                {currency.symbol}0
+              </span>
               <span className="text-xs text-zinc-500">/ forever</span>
             </div>
 
@@ -91,8 +131,12 @@ export function PricingSection() {
             </p>
 
             <div className="flex items-baseline space-x-2 pt-2">
-              <span className="text-xs text-zinc-500 line-through font-bold">$12/mo</span>
-              <span className="text-4xl font-black text-violet-600 dark:text-violet-400">$0</span>
+              <span className="text-xs text-zinc-500 line-through font-bold">
+                {currency.symbol}{currency.proPriceMonthly}/mo
+              </span>
+              <span className="text-4xl font-black text-violet-600 dark:text-violet-400">
+                {currency.symbol}0
+              </span>
               <span className="text-xs text-emerald-500 font-semibold">(Launch Special)</span>
             </div>
 
@@ -130,7 +174,7 @@ export function PricingSection() {
             href="/reader"
             className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 text-white font-bold text-xs uppercase tracking-wider text-center shadow-lg shadow-violet-600/30 flex items-center justify-center space-x-2 transition"
           >
-            <span>Claim Free Access</span>
+            <span>Claim Free Lifetime Access</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
@@ -180,14 +224,14 @@ export function PricingSection() {
         </motion.div>
       </div>
 
-      {/* Comparison Callout: Save $240/yr */}
+      {/* Comparison Callout: Save Money Banner */}
       <div className="mt-12 p-6 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-violet-500/10 to-cyan-500/10 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
         <div className="space-y-1">
           <h4 className="text-base font-extrabold text-zinc-900 dark:text-white">
-            💰 Why pay $239.88/year for Adobe Acrobat Pro?
+            💰 Why pay {currency.symbol}{currency.adobeYearlyCost.toLocaleString()}/year for Adobe Acrobat Pro?
           </h4>
           <p className="text-xs text-zinc-600 dark:text-zinc-400">
-            DripPDF Studio gives you the same viewing, signing, and converting power for $0 with superior browser privacy.
+            DripPDF Studio gives you the same viewing, signing, and converting power for {currency.symbol}0 with superior browser privacy.
           </p>
         </div>
         <Link

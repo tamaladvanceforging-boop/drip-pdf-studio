@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Sparkles, Mail, Lock, User, ArrowRight, Github, Chrome, ShieldCheck } from "lucide-react";
+import { Sparkles, Mail, Lock, User, ArrowRight, ShieldCheck, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function SignupPage() {
@@ -47,14 +47,14 @@ export default function SignupPage() {
             type="button"
             className="flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-800/60 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-200 transition"
           >
-            <Chrome className="w-4 h-4 text-rose-500" />
+            <Globe className="w-4 h-4 text-rose-500" />
             <span>Google</span>
           </button>
           <button
             type="button"
             className="flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-800/60 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-xs font-semibold text-zinc-700 dark:text-zinc-200 transition"
           >
-            <Github className="w-4 h-4 text-zinc-900 dark:text-white" />
+            <Globe className="w-4 h-4 text-zinc-900 dark:text-white" />
             <span>GitHub</span>
           </button>
         </div>

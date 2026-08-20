@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/reader",
+    "/tools/chat-pdf",
     "/tools/merge",
     "/tools/split",
     "/tools/organize",
@@ -14,8 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/convert",
     "/tools/watermark",
     "/tools/protect",
+    "/tools/redact",
     "/tools/ocr",
     "/tools/compare",
+    "/login",
+    "/signup",
   ];
 
   return routes.map((route) => ({

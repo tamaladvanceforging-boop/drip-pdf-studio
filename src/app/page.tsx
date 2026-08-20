@@ -22,7 +22,6 @@ import {
   Eraser,
   Star,
   Users,
-  Lock,
 } from "lucide-react";
 import { Spotlight } from "@/components/ui/spotlight";
 import { BackgroundBeams } from "@/components/ui/background-beams";
@@ -46,7 +45,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="relative flex-1 flex flex-col bg-zinc-950 text-zinc-100 overflow-hidden transition-colors duration-300">
+    <div className="relative flex-1 flex flex-col bg-slate-50 dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 overflow-hidden transition-colors duration-300">
       {/* Background Beams & Spotlights */}
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#8b5cf6" />
       <BackgroundBeams />
@@ -60,9 +59,9 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-violet-500/10 dark:bg-violet-500/20 border border-violet-500/30 text-violet-300 text-xs font-semibold shadow-lg shadow-violet-500/10"
+              className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-violet-500/10 dark:bg-violet-500/20 border border-violet-500/30 text-violet-700 dark:text-violet-300 text-xs font-semibold shadow-sm"
             >
-              <Sparkles className="w-4 h-4 text-violet-400 animate-pulse" />
+              <Sparkles className="w-4 h-4 text-violet-600 dark:text-violet-400 animate-pulse" />
               <span>100% Free • No Signup Required • Zero Server Uploads</span>
             </motion.div>
 
@@ -70,10 +69,10 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.1]"
+              className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]"
             >
               The Next-Gen{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 via-fuchsia-600 to-cyan-500">
                 PDF Powerhouse
               </span>{" "}
               for Every Device.
@@ -83,7 +82,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed"
+              className="text-base sm:text-lg text-slate-600 dark:text-zinc-400 max-w-2xl leading-relaxed"
             >
               Adobe Acrobat Reader Pro interactive viewer, freehand drawing, e-signatures, AI Chat with PDF, plus all 20+ iLovePDF tools. **Use everything completely free without signing up!**
             </motion.p>
@@ -106,33 +105,33 @@ export default function HomePage() {
 
               <Link
                 href="/tools/chat-pdf"
-                className="px-6 py-3.5 rounded-2xl bg-zinc-900/80 hover:bg-zinc-800 text-zinc-200 hover:text-white font-semibold text-sm border border-white/10 shadow-lg backdrop-blur-xl flex items-center space-x-2 transition"
+                className="px-6 py-3.5 rounded-2xl bg-white dark:bg-zinc-900/80 hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-800 dark:text-zinc-200 hover:text-slate-900 dark:hover:text-white font-semibold text-sm border border-slate-200 dark:border-white/10 shadow-md backdrop-blur-xl flex items-center space-x-2 transition"
               >
-                <Bot className="w-4 h-4 text-cyan-400" />
+                <Bot className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>AI Chat with PDF</span>
               </Link>
             </motion.div>
 
             {/* Viral Live Stats Counter */}
-            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left border-t border-white/5">
+            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left border-t border-slate-200 dark:border-white/10">
               <div className="space-y-0.5">
-                <div className="text-xl font-black text-white">150,000+</div>
-                <div className="text-[11px] text-zinc-400">PDFs Processed</div>
+                <div className="text-xl font-black text-slate-900 dark:text-white">150,000+</div>
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400">PDFs Processed</div>
               </div>
               <div className="space-y-0.5">
-                <div className="text-xl font-black text-emerald-400">100%</div>
-                <div className="text-[11px] text-zinc-400">Private in RAM</div>
+                <div className="text-xl font-black text-emerald-600 dark:text-emerald-400">100%</div>
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400">Private in RAM</div>
               </div>
               <div className="space-y-0.5">
-                <div className="text-xl font-black text-cyan-400">$0 / Free</div>
-                <div className="text-[11px] text-zinc-400">Zero Paywalls</div>
+                <div className="text-xl font-black text-cyan-600 dark:text-cyan-400">$0 / Free</div>
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400">Zero Paywalls</div>
               </div>
               <div className="space-y-0.5">
-                <div className="text-xl font-black text-amber-400 flex items-center space-x-1">
+                <div className="text-xl font-black text-amber-500 dark:text-amber-400 flex items-center space-x-1">
                   <span>4.9</span>
                   <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                 </div>
-                <div className="text-[11px] text-zinc-400">12,500+ Reviews</div>
+                <div className="text-[11px] text-slate-500 dark:text-zinc-400">12,500+ Reviews</div>
               </div>
             </div>
           </div>
@@ -154,10 +153,10 @@ export default function HomePage() {
       {/* Bento Grid Tools Showcase */}
       <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center space-y-3 mb-12">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             Complete Adobe Reader + iLovePDF Suite
           </h2>
-          <p className="text-sm text-zinc-400 max-w-xl mx-auto">
+          <p className="text-sm text-slate-600 dark:text-zinc-400 max-w-xl mx-auto">
             Everything you need to read, annotate, sign, convert, optimize, and secure PDFs in one ultra-fast workspace.
           </p>
         </div>
@@ -168,9 +167,9 @@ export default function HomePage() {
             title="Adobe Reader Pro Studio"
             description="Continuous scroll, single page, zoom, freehand pen, marker, text boxes, and full in-document search."
             header={
-              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-violet-400">
+              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-violet-600 dark:text-violet-400">
                 <BookOpen className="w-12 h-12" />
-                <span className="text-xs font-bold text-zinc-300">Interactive Canvas Reader</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">Interactive Canvas Reader</span>
               </div>
             }
             icon={<BookOpen className="w-5 h-5" />}
@@ -184,9 +183,9 @@ export default function HomePage() {
             title="AI Chat & Summarizer"
             description="Ask questions, extract tabular data, and get instant executive takeaways using in-browser AI."
             header={
-              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-cyan-400">
+              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-cyan-600 dark:text-cyan-400">
                 <Bot className="w-12 h-12" />
-                <span className="text-xs font-bold text-zinc-300">AI Document Assistant</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">AI Document Assistant</span>
               </div>
             }
             icon={<Bot className="w-5 h-5" />}
@@ -199,9 +198,9 @@ export default function HomePage() {
             title="Digital e-Signature"
             description="Draw with touch bezier curves, type cursive calligraphy styles, or upload your signature image."
             header={
-              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-fuchsia-400">
+              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-fuchsia-600 dark:text-fuchsia-400">
                 <FileSignature className="w-12 h-12" />
-                <span className="text-xs font-bold text-zinc-300">Draw / Type / Upload</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">Draw / Type / Upload</span>
               </div>
             }
             icon={<FileSignature className="w-5 h-5" />}
@@ -214,9 +213,9 @@ export default function HomePage() {
             title="Merge PDF"
             description="Combine multiple PDF documents into a single consolidated file in your chosen order."
             header={
-              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-blue-400">
+              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-blue-600 dark:text-blue-400">
                 <Layers className="w-10 h-10" />
-                <span className="text-xs font-bold text-zinc-300">Multi-File Combiner</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">Multi-File Combiner</span>
               </div>
             }
             icon={<Layers className="w-5 h-5" />}
@@ -228,9 +227,9 @@ export default function HomePage() {
             title="Redact & Sanitize Data"
             description="Permanently strip metadata, GPS tags, author history, and lock confidential form information."
             header={
-              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-rose-400">
+              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-rose-600 dark:text-rose-400">
                 <Eraser className="w-10 h-10" />
-                <span className="text-xs font-bold text-zinc-300">Privacy Sanitizer</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">Privacy Sanitizer</span>
               </div>
             }
             icon={<Eraser className="w-5 h-5" />}
@@ -243,9 +242,9 @@ export default function HomePage() {
             title="Compress PDF"
             description="Reduce PDF file size locally with smart image optimization while maintaining document readability."
             header={
-              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-emerald-400">
+              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-emerald-600 dark:text-emerald-400">
                 <Minimize2 className="w-10 h-10" />
-                <span className="text-xs font-bold text-zinc-300">Smart Compression</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">Smart Compression</span>
               </div>
             }
             icon={<Minimize2 className="w-5 h-5" />}
@@ -257,9 +256,9 @@ export default function HomePage() {
             title="Universal Convert Hub"
             description="Convert Images (JPG, PNG, WebP) to PDF, and export PDF pages as high-resolution images or formatted Text."
             header={
-              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-blue-400">
+              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-blue-600 dark:text-blue-400">
                 <FileImage className="w-12 h-12" />
-                <span className="text-xs font-bold text-zinc-300">Images ↔ PDF ↔ Text</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">Images ↔ PDF ↔ Text</span>
               </div>
             }
             icon={<FileImage className="w-5 h-5" />}
@@ -273,9 +272,9 @@ export default function HomePage() {
             title="AI OCR Text Extractor"
             description="Tesseract.js in-browser AI engine transforms scanned PDF documents and images into selectable text."
             header={
-              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-amber-400">
+              <div className="flex flex-col items-center justify-center p-4 space-y-2 text-amber-600 dark:text-amber-400">
                 <Eye className="w-10 h-10" />
-                <span className="text-xs font-bold text-zinc-300">Client AI OCR</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-zinc-300">Client AI OCR</span>
               </div>
             }
             icon={<Eye className="w-5 h-5" />}
@@ -286,34 +285,34 @@ export default function HomePage() {
       </section>
 
       {/* Feature Pillars */}
-      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-white/5">
+      <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200 dark:border-white/10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass-card p-6 rounded-2xl space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-violet-500/20 text-violet-400 flex items-center justify-center">
+          <div className="p-6 rounded-2xl space-y-3 bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-white/10 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-violet-500/10 dark:bg-violet-500/20 text-violet-600 dark:text-violet-400 flex items-center justify-center">
               <Shield className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-white text-base">100% Private & Free</h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
+            <h3 className="font-bold text-slate-900 dark:text-white text-base">100% Private & Free</h3>
+            <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
               No login required for free use. All rendering and converting happen in local browser RAM with zero server uploads.
             </p>
           </div>
 
-          <div className="glass-card p-6 rounded-2xl space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+          <div className="p-6 rounded-2xl space-y-3 bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-white/10 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex items-center justify-center">
               <Zap className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-white text-base">Zero Upload Latency</h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
+            <h3 className="font-bold text-slate-900 dark:text-white text-base">Zero Upload Latency</h3>
+            <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
               Instant PDF processing without waiting for multi-megabyte file uploads or queue limits on external cloud servers.
             </p>
           </div>
 
-          <div className="glass-card p-6 rounded-2xl space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-fuchsia-500/20 text-fuchsia-400 flex items-center justify-center">
+          <div className="p-6 rounded-2xl space-y-3 bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-white/10 shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-fuchsia-500/10 dark:bg-fuchsia-500/20 text-fuchsia-600 dark:text-fuchsia-400 flex items-center justify-center">
               <Cpu className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-white text-base">Hybrid 3-Device Native</h3>
-            <p className="text-xs text-zinc-400 leading-relaxed">
+            <h3 className="font-bold text-slate-900 dark:text-white text-base">Hybrid 3-Device Native</h3>
+            <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed">
               Engineered with responsive layouts and PWA capabilities that adapt perfectly across Mobile, Tablet stylus, and Desktop.
             </p>
           </div>

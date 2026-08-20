@@ -59,10 +59,10 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
           handleFiles(e.dataTransfer.files);
         }}
         onClick={() => inputRef.current?.click()}
-        className={`relative cursor-pointer rounded-2xl border-2 border-dashed p-8 md:p-12 transition-all duration-300 text-center flex flex-col items-center justify-center overflow-hidden ${
+        className={`relative cursor-pointer rounded-3xl border-2 border-dashed p-8 md:p-12 transition-all duration-300 text-center flex flex-col items-center justify-center overflow-hidden ${
           dragOver
-            ? "border-violet-400 bg-violet-500/10 scale-[1.01]"
-            : "border-white/10 hover:border-violet-500/40 bg-zinc-900/40 hover:bg-zinc-900/60"
+            ? "border-violet-500 bg-violet-500/10 scale-[1.01]"
+            : "border-slate-300 dark:border-white/10 hover:border-violet-500/50 bg-white dark:bg-zinc-900/40 hover:bg-slate-50 dark:hover:bg-zinc-900/60 shadow-sm"
         } backdrop-blur-xl group`}
       >
         <input
@@ -77,14 +77,14 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
         {/* Animated Glow on hover */}
         <div className="absolute inset-0 bg-gradient-to-tr from-violet-600/10 via-transparent to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-        <div className="w-16 h-16 rounded-2xl bg-zinc-800/90 border border-white/10 flex items-center justify-center text-violet-400 shadow-xl mb-4 group-hover:scale-110 group-hover:text-violet-300 group-hover:border-violet-500/40 transition-all duration-300">
+        <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-zinc-800/90 border border-slate-200 dark:border-white/10 flex items-center justify-center text-violet-600 dark:text-violet-400 shadow-md mb-4 group-hover:scale-110 group-hover:text-violet-500 dark:group-hover:text-violet-300 group-hover:border-violet-500/40 transition-all duration-300">
           <UploadCloud className="w-8 h-8" />
         </div>
 
-        <h3 className="text-lg font-bold text-zinc-100 mb-1 group-hover:text-violet-300 transition-colors">
+        <h3 className="text-lg font-bold text-slate-900 dark:text-zinc-100 mb-1 group-hover:text-violet-600 dark:group-hover:text-violet-300 transition-colors">
           {title}
         </h3>
-        <p className="text-xs text-zinc-400 max-w-md mb-4">{description}</p>
+        <p className="text-xs text-slate-500 dark:text-zinc-400 max-w-md mb-4">{description}</p>
 
         <button
           type="button"
@@ -97,13 +97,13 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
       {/* Selected files preview */}
       {selectedFiles.length > 0 && (
         <div className="space-y-2">
-          <div className="flex items-center justify-between text-xs text-zinc-400 px-1">
+          <div className="flex items-center justify-between text-xs text-slate-500 dark:text-zinc-400 px-1">
             <span>Selected files ({selectedFiles.length})</span>
             {multiple && selectedFiles.length < maxFiles && (
               <button
                 type="button"
                 onClick={() => inputRef.current?.click()}
-                className="flex items-center space-x-1 text-violet-400 hover:text-violet-300"
+                className="flex items-center space-x-1 text-violet-600 dark:text-violet-400 hover:text-violet-500"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add more</span>
@@ -119,15 +119,15 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  className="flex items-center justify-between p-3 rounded-xl bg-zinc-900/80 border border-white/10 shadow-lg"
+                  className="flex items-center justify-between p-3 rounded-2xl bg-white dark:bg-zinc-900/80 border border-slate-200 dark:border-white/10 shadow-sm"
                 >
                   <div className="flex items-center space-x-3 overflow-hidden">
-                    <div className="w-8 h-8 rounded-lg bg-violet-500/20 text-violet-400 flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-violet-500/10 dark:bg-violet-500/20 text-violet-600 dark:text-violet-400 flex items-center justify-center flex-shrink-0">
                       <File className="w-4 h-4" />
                     </div>
                     <div className="overflow-hidden">
-                      <p className="text-xs font-medium text-zinc-200 truncate">{file.name}</p>
-                      <p className="text-[10px] text-zinc-500">{formatBytes(file.size)}</p>
+                      <p className="text-xs font-medium text-slate-900 dark:text-zinc-200 truncate">{file.name}</p>
+                      <p className="text-[10px] text-slate-500 dark:text-zinc-400">{formatBytes(file.size)}</p>
                     </div>
                   </div>
                   <button
@@ -136,7 +136,7 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
                       e.stopPropagation();
                       removeFile(idx);
                     }}
-                    className="p-1 text-zinc-400 hover:text-rose-400 hover:bg-white/5 rounded-md transition"
+                    className="p-1 text-slate-400 hover:text-rose-500 hover:bg-slate-100 dark:hover:bg-white/5 rounded-md transition"
                   >
                     <X className="w-4 h-4" />
                   </button>

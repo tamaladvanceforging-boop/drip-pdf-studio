@@ -7,9 +7,8 @@ import {
   X,
   Sparkles,
   MessageCircle,
-  Linkedin,
-  Twitter,
   Send,
+  Globe,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
@@ -38,13 +37,13 @@ export function ShareModal() {
     },
     {
       name: "Twitter / X",
-      icon: Twitter,
+      icon: Globe,
       color: "bg-zinc-800 hover:bg-zinc-700",
       url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}&hashtags=PDF,Productivity,FreeTools,Tech`,
     },
     {
       name: "LinkedIn",
-      icon: Linkedin,
+      icon: Globe,
       color: "bg-blue-700 hover:bg-blue-600",
       url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
     },
